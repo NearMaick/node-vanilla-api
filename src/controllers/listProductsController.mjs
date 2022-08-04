@@ -1,6 +1,6 @@
-const { listProductsRepository } = require("../repositories/productsRepository");
+import { listProductsRepository } from "../repositories/productsRepository.mjs";
 
-async function listProducts(_, response) {
+export async function listProducts(_, response) {
   try {
     const products = await listProductsRepository();
     response.writeHead(200, { "Content-Type": "text/json" });
@@ -9,7 +9,3 @@ async function listProducts(_, response) {
     console.log(error);
   }
 }
-
-module.exports = {
-  listProducts,
-};

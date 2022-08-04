@@ -1,5 +1,5 @@
-const { createServer } = require("http");
-const { listProducts } = require("./controllers/listProductsController");
+import { createServer } from "http";
+import { listProducts } from "./controllers/listProductsController.mjs";
 
 const server = createServer((request, response) => {
   switch (request.url) {
