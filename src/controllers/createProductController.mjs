@@ -3,8 +3,16 @@ import { getJsonBody } from "../utils/getJsonBody.mjs";
 
 export async function createProductController(request, response) {
   try {
-    const body = await getJsonBody(request);
-    const product = await create(body);
+    const { name, price, description, image, quantity, total } =
+      await getJsonBody(request);
+    const product = await create({
+      name,
+      price,
+      description,
+      image,
+      quantity,
+      total,
+    });
 
     response.writeHead(201, {
       "Content-Type": "text/json",

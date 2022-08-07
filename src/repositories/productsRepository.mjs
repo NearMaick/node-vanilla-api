@@ -13,6 +13,7 @@ export function create(product) {
   return new Promise((resolve) => {
     const { name, price, description, image, quantity, total } = product;
     const newProduct = {
+      ...product,
       id: products.length + 1,
       name,
       price,
@@ -25,5 +26,14 @@ export function create(product) {
     products.push(newProduct);
     writeJsonToFile("./src/data/products.json", products);
     resolve(newProduct);
+  });
+}
+
+export function update(product) {
+  return new Promise((resolve) => {
+    const index = products.findIndex((p) => p.id === product.id);
+    products[index] = product;
+    writeJsonToFile("./src/data/products.json", products);
+    resolve(product);
   });
 }
