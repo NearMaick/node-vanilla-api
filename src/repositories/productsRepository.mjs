@@ -37,3 +37,13 @@ export function update(product) {
     resolve(product);
   });
 }
+
+export function deleteProduct(productId) {
+  return new Promise((resolve) => {
+    const productsWithoutDeleted = products.filter(
+      (product) => product.id !== productId
+    );
+    writeJsonToFile("./src/data/products.json", productsWithoutDeleted);
+    resolve(null);
+  });
+}

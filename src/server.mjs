@@ -1,5 +1,6 @@
 import { createServer } from "http";
 import { createProductController } from "./controllers/createProductController.mjs";
+import { deleteProductController } from "./controllers/deleteProductController.mjs";
 import { getProductController } from "./controllers/getProductController.mjs";
 import { listProductsController } from "./controllers/listProductsController.mjs";
 import { updateProductController } from "./controllers/updateProductController.mjs";
@@ -23,6 +24,11 @@ const server = createServer((request, response) => {
         if (request.method === "PATCH") {
           const productId = parseInt(request.url.split("/")[3], 10);
           updateProductController(request, response, productId);
+        }
+
+        if (request.method === "DELETE") {
+          const productId = parseInt(request.url.split("/")[3], 10);
+          deleteProductController(request, response, productId);
         }
         break;
 
