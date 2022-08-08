@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node .src/server.js",
     "dev": "nodemon src/server.js",
-    "test": "nodemon src/server.spec.js"
+    "test": "node --no-warnings src/server.spec.js"
   },
   "keywords": [],
   "author": "",
