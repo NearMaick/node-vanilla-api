@@ -1,5 +1,5 @@
-import { create } from "../repositories/productsRepository.mjs";
-import { getJsonBody } from "../utils/getJsonBody.mjs";
+import { create } from "../repositories/productsRepository.js";
+import { getJsonBody } from "../utils/getJsonBody.js";
 
 export async function createProductController(request, response) {
   try {

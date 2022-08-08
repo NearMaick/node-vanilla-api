@@ -1,4 +1,4 @@
-import { deleteProduct, list } from "../repositories/productsRepository.mjs";
+import { deleteProduct, list } from "../repositories/productsRepository.js";
 
 export async function deleteProductController(request, response, productId) {
   const targetProduct = await list(productId);

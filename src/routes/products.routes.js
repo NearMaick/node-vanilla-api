@@ -1,8 +1,8 @@
-import { createProductController } from "../controllers/createProductController.mjs";
-import { deleteProductController } from "../controllers/deleteProductController.mjs";
-import { getProductController } from "../controllers/getProductController.mjs";
-import { listProductsController } from "../controllers/listProductsController.mjs";
-import { updateProductController } from "../controllers/updateProductController.mjs";
+import { createProductController } from "../controllers/createProductController.js";
+import { deleteProductController } from "../controllers/deleteProductController.js";
+import { getProductController } from "../controllers/getProductController.js";
+import { listProductsController } from "../controllers/listProductsController.js";
+import { updateProductController } from "../controllers/updateProductController.js";
 
 export async function productsRoutes(request, response) {
   switch (request.url) {

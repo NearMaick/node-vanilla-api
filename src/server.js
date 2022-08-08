@@ -1,5 +1,5 @@
-import { createServer } from "http";
-import { productsRoutes } from "./routes/products.routes.mjs";
+import { createServer } from "node:http";
+import { productsRoutes } from "./routes/products.routes.js";
 
 const server = createServer(async (request, response) => {
   const isRoute = await productsRoutes(request, response);

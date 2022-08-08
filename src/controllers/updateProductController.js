@@ -1,5 +1,5 @@
-import { list, update } from "../repositories/productsRepository.mjs";
-import { getJsonBody } from "../utils/getJsonBody.mjs";
+import { list, update } from "../repositories/productsRepository.js";
+import { getJsonBody } from "../utils/getJsonBody.js";
 
 export async function updateProductController(request, response, id) {
   try {

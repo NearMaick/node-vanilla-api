@@ -1,5 +1,5 @@
 import products from "../data/products.json" assert { "type": "json" };
-import { writeJsonToFile } from "../utils/writeJsonToFile.mjs";
+import { writeJsonToFile } from "../utils/writeJsonToFile.js";
 
 export function list() {
   return Promise.resolve(products);

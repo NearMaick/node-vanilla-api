@@ -1,4 +1,4 @@
-import { list } from "../repositories/productsRepository.mjs";
+import { list } from "../repositories/productsRepository.js";
 
 export async function listProductsController(_, response) {
   try {

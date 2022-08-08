@@ -1,13 +1,13 @@
-import { getOne } from "../repositories/productsRepository.mjs";
+import { getOne } from "../repositories/productsRepository.js";
 
 export async function getProductController(_, response, productId) {
   try {
     const product = await getOne(productId);
-    
+
     if (product) {
       response.writeHead(200, { "Content-Type": "text/json" });
       response.end(JSON.stringify(product));
-      return
+      return;
     }
 
     response.writeHead(404, { "Content-Type": "text/json" });
