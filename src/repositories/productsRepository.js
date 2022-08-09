@@ -1,3 +1,4 @@
+import { randomUUID } from "crypto";
 import products from "../data/products.json" assert { "type": "json" };
 import { writeJsonToFile } from "../utils/writeJsonToFile.js";
 
@@ -14,7 +15,7 @@ export function create(product) {
     const { name, price, description, image, quantity, total } = product;
     const newProduct = {
       ...product,
-      id: products.length + 1,
+      id: randomUUID(),
       name,
       price,
       description,

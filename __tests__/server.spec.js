@@ -1,11 +1,8 @@
 await import("../src/server.js");
 import { deepStrictEqual, strictEqual } from "assert";
 import { describe, it } from "node:test";
-import products from "../src/data/products.json" assert { "type": "json" };
 
-const productsQuantity = products.length;
-
-describe("Products Routes", () => {
+describe("Products Routes", async () => {
   it("should be able to create a product", async () => {
     const productCreateMock = {
       description: "This is test product",
@@ -65,9 +62,9 @@ describe("Products Routes", () => {
     } catch (error) {
       console.log(error);
     }
-    await fetch(`http://localhost:3333/api/products/${productsQuantity + 1}`, {
-      method: "DELETE",
-    });
+    // await fetch(`http://localhost:3333/api/products/${productListData.id}`, {
+    //   method: "DELETE",
+    // });
   });
 
   it("should be able to update a product", async () => {
@@ -80,8 +77,11 @@ describe("Products Routes", () => {
       total: 300,
     };
 
+    const responseForUpdate = await fetch(`http://localhost:3333/api/products`);
+    const resultForUpdate = await responseForUpdate.json();
+
     const responseUpdate = await fetch(
-      `http://localhost:3333/api/products/${productsQuantity + 1}`,
+      `http://localhost:3333/api/products/${resultForUpdate[0].id}`,
       {
         method: "PATCH",
         body: JSON.stringify(productUpdateMock),
@@ -98,9 +98,9 @@ describe("Products Routes", () => {
     } catch (error) {
       console.log(error);
     }
-    await fetch(`http://localhost:3333/api/products/${productsQuantity + 1}`, {
-      method: "DELETE",
-    });
+    // await fetch(`http://localhost:3333/api/products/${resultUpdate.id}`, {
+    //   method: "DELETE",
+    // });
   });
 
   it("should be able to list products", async () => {
@@ -112,9 +112,6 @@ describe("Products Routes", () => {
     } catch (error) {
       console.log(error);
     }
-    await fetch(`http://localhost:3333/api/products/${productsQuantity + 1}`, {
-      method: "DELETE",
-    });
   });
 
   it("should be delete a product", async () => {
@@ -122,9 +119,9 @@ describe("Products Routes", () => {
       "http://localhost:3333/api/products"
     );
     const resultForDelete = await responseListDelete.json();
-    const listQuantity = resultForDelete.length;
+
     const resultDeletes = await fetch(
-      `http://localhost:3333/api/products/${listQuantity}`,
+      `http://localhost:3333/api/products/${resultForDelete[0].id}`,
       {
         method: "DELETE",
       }
